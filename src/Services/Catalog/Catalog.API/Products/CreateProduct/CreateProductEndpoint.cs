@@ -1,6 +1,12 @@
 ﻿namespace Catalog.API.Products.CreateProduct
 {
-	public record CreateProductRequest(string Name, List<string> Category, string Description, string ImageFile, decimal Price);
+	public record CreateProductRequest(
+		string Name, 
+		List<string> Category, 
+		string Description, 
+		string ImageFile, 
+		decimal Price
+		);
 
 	public record CreateProductResponse(Guid Id);
 
@@ -15,7 +21,8 @@
 		/// <param name="app">The endpoint route builder.</param>
 		public void AddRoutes(IEndpointRouteBuilder app)
 		{
-			app.MapPost("/products", async (CreateProductRequest request, ISender sender) =>
+			app.MapPost("/products", 
+				async (CreateProductRequest request, ISender sender) =>
 			{
 				/*
 
